@@ -170,6 +170,11 @@ float3 GetNormalDifference(float2 texcoord)
     return diff - core;
 }
 
+float4 PS_CopyFXmain(float4 vpos : SV_Position, float2 texcoord : TexCoord) : SV_Target
+{
+    return tex2D(TempHdrSampler, texcoord);
+}
+
 float3 PS_NightVision(float4 vpos : SV_Position, float2 texcoord : TexCoord) : SV_Target
 {
     #ifdef TMG_USE_HDR_PIPELINE
